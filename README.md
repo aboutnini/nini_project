@@ -1,2 +1,2 @@
 # nini_project
-test
+이름 변경
