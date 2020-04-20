@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<link rel="stylesheet" href="/assets/css/default.css">
+	<script></script>
+	<script src="/assets/js/lib/jquery-1.7.1.min.js"></script>
+	<script>
+		
+		$(function(){
+
+			var len = $('.wrap > div').length;
+			var arr  = [];
+
+			for(var i=0; i<len; i++) {
+				$(function(i){
+						setTimeout(function(){
+							$('.wrap > div').eq(i).addClass('on');
+						}, 2000 * i);
+					}(i));
+
+					arr.push(i)
+			}
+
+			var score2 = arr.sort();
+			var score3 = score2.reverse();
+			
+
+			$('button').on('click',function(){
+				var hasOn = $('.motion1, .motion2').hasClass('on');
+				if(!hasOn){
+					
+					for(var i=0; i<len; i++) {
+						$(function(i){
+								setTimeout(function(){
+									$('.wrap > div').eq(i).addClass('on');
+								}, 1000 * i);
+							}(i));
+					}
+					$(this).text('사라짐');
+				}else {
+					
+					for(var i=0; i<len; i++) {
+						$(function(i){
+								setTimeout(function(){
+									$('.motion1, .motion2').eq(arr[i]).removeClass('on');
+								}, 1000 * i);
+							}(i));
+					}
+					$(this).text('눌러');
+				};
+			});
+		});
+	
+	
+	</script>
+</head>
+<body>
+
+	<button>사라짐</button>
+	<div class="wrap"> 
+		<div class="motion1">
+			<div class="img">1</div>
+		</div>
+		<div class="motion2">
+			<div class="img">2</div>
+		</div>
+	</div> 
+
+</body>
+
+</html>

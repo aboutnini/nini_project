@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<link rel="stylesheet" href="/assets/css/default.css">
+	<script></script>
+	<script src="/assets/js/lib/jquery-1.7.1.min.js"></script>
+	<script>
+		$(function(){
+			// 강제 클릭 
+			// setTimeout(function(){
+			// 	$('button').trigger('click');
+			// },2000)
+			var isBlock = true;
+			var convertSpeed = convert();
+			console.log(convertSpeed)
+			function convert(){
+				var convert = $('.wrap>div').css('transition-duration');
+				convert = convert.split('s');
+				convert = convert[0]*1000;
+				return convert;
+			}
+			$('button').on('click',function(){
+				var len = $('.wrap > div').length;
+				var _this = $(this).find('span');
+				var hasOn = $('.motion1, .motion2').hasClass('on');
+				var speed = 400;
+				if(isBlock) {
+					if(!hasOn){
+						isBlock = false;
+						for(var i=0; i<len; i++) {
+							$(function(i){
+								setTimeout(function(){
+									$('.wrap > div').eq(i).addClass('on');
+								}, 1000 * i);
+							}(i));
+						}
+						_this.stop().animate({'opacity':0},speed)
+						setTimeout(function(){
+							_this.stop().animate({'opacity':1},speed);
+							_this.text('사라짐');
+							isBlock = true;
+						},convertSpeed);
+					}else {
+						isBlock = false;
+						for(var i=len; i>0; i--) { // i는 총갯수, 실행은 순서대로 실행 
+							$(function(i){
+								setTimeout(function(){
+									$('.motion1, .motion2').eq(len-i).removeClass('on'); //결론적으로 eq는 역순으로 실행
+								}, 1000 * i);
+							}(i));
+						}
+						_this.stop().animate({'opacity':0},speed)
+						setTimeout(function(){
+							_this.stop().animate({'opacity':1},speed);
+							_this.text('눌러');
+							isBlock = true;
+						},convertSpeed);
+					}
+				};
+			});
+		});
+	</script>
+</head>
+<body>
+	<button class="on"><span>눌러</span></button>
+	<div class="wrap"> 
+		<div class="motion1">
+			<div class="img">1</div>
+		</div>
+		<div class="motion2">
+			<div class="img">2</div>
+		</div>
+	</div> 
+</body>
+</html>

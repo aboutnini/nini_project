@@ -1,0 +1,115 @@
+@charset "utf-8";
+/* @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css); */
+
+/* Reset */
+ * {outline:0 !important;}
+html,body,h1,h2,h3,h4,h5,h6,div,p,blockquote,pre,code,address,ul,ol,li,menu,nav,section,article,aside,
+dl,dt,dd,table,thead,tbody,tfoot,label,caption,th,td,form,fieldset,legend,hr,input,button,textarea,object,figure,figcaption {margin:0;padding:0;}
+html, body{width:100%;}
+body{width:100%; background:#fff; min-width:320px; -webkit-text-size-adjust:none;word-wrap:break-word;word-break:break-all;}
+body,input,select,textarea,button {border:none;font-size:12px; /*font-family:'Noto Sans KR', sans-serif;*/color:#727272;}
+ul,ol,li{list-style:none;}
+table{width:100%;border-spacing:0;border-collapse:collapse;}
+img,fieldset{border:0;}
+address,cite,code,em{font-style:normal;font-weight:normal;}
+label,img,input,select,textarea,button{vertical-align:middle;}
+.hide,caption,legend{line-height:0;font-size:1px;overflow:hidden;}
+hr{display:none;}
+main,header,section,nav,footer,aside,article,figure{display:block;}
+a{color:#000;text-decoration:none;}
+ 
+*::-webkit-input-placeholder {color:#999; line-height:100%;}
+*::-moz-placeholder {color:#999;}
+*:-ms-input-placeholder {color:#999;}
+*:-moz-placeholder {color:#999;}
+
+.clear {clear:both;}
+.clear:after { content:""; display:block; clear:both;}
+
+#skip {position:absolute; top:0; left:0; right:0; z-index:10000;}
+#skip a {position:absolute;top:-100px;left:0; right:0; padding:7px 0;text-align:center;font-weight:bold;color:#000;background:#ebebeb;border:1px solid;}
+#skip a:focus, #skip a:active {top:3px; left:0px;}
+
+#dim {display:none;width:100%;height:100%;position:fixed;top:0;bottom:0;left:0;right:0;background:rgba(0, 0, 0, 0.25);z-index:100;}
+
+
+
+ button {
+	 width: 300px;
+	 height: 100px;
+	 background: red;
+	 cursor: pointer;
+ }
+ 
+ button span {
+	color: #fff;
+	font-size: 50px;
+}
+
+.wrap{
+	position: relative;
+	width: 800px;
+	height: 800px;
+	margin: 50px auto;
+	border: 1px solid red;
+	overflow: hidden;
+}
+
+.motion1,
+.motion2 {
+	position: absolute;
+	width: 230px;
+	height:1000px;
+	font-size: 50px;
+	color:#000;
+	border-radius: 150px;
+	text-align: center;
+	transition: 3s;
+	border:1px solid red;
+	overflow: hidden;
+}
+.motion1 .img,
+.motion2 .img {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	transition: 3s;
+}
+.motion1 {
+	top: 1000px;
+	left: 150px;
+	background-position: 0 0;
+}
+.motion1.on {
+	top: 100px;
+	left: 150px;
+}
+.motion1 .img {
+	top: -1000px;
+	left: 0;
+	background: url(../img/img_bg.png) no-repeat -150px 0;
+}
+.motion1.on .img {
+	top: -100px;
+}
+
+
+
+/* 2 */
+
+.motion2 {
+	right: 150px;
+	bottom: 1000px;
+}
+.motion2.on {
+	right: 150px;
+	bottom: 100px;
+}
+.motion2 .img {
+	bottom: -1000px;
+	left: 0;
+	background: url(../img/img_bg.png) no-repeat -400px 200px;
+}
+.motion2.on .img {
+	bottom: -100px;
+}
