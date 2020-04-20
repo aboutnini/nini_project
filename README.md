@@ -1,2 +1,7 @@
 # nini_project
-이름 변경
+
+
+akfsdlj;asdkfja;sdklfjas
+fajksd;kjfsa;klfas
+aksdfj;sadkfj
+adsfjk;sdlaf
